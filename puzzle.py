@@ -1,3 +1,6 @@
+# there are 9 solution
+# but only one solution that n00 = 4
+
 def solve():
   for n00 in range(10):
     for n01 in range(10):
