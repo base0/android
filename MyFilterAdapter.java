@@ -55,7 +55,7 @@ public class MyFilterAdapter extends BaseAdapter implements Filterable {
                 if (constraint != null && constraint.length() > 0) {
                     List<String> resultValue = new ArrayList<>();
                     for (String s : originalList) {
-                        if (s.contains(constraint))
+                        if (s.toLowerCase().contains(constraint.toString().toLowerCase()))
                             resultValue.add(s);
                     }
                     filterResults.values = resultValue;
