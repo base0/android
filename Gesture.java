@@ -36,13 +36,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        GestureOverlayView gestureOverlayView = new GestureOverlayView(this);
         View inflate = getLayoutInflater().inflate(R.layout.activity_main, null);
+        GestureOverlayView gestureOverlayView = new GestureOverlayView(this);
         gestureOverlayView.addView(inflate);
         gestureOverlayView.addOnGesturePerformedListener(new GestureOverlayView.OnGesturePerformedListener() {
             @Override
             public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
-
                 ArrayList<Prediction> predictions = gestureLib.recognize(gesture);
                 for (Prediction prediction : predictions) {
                     if (prediction.score > 1.0) {
