@@ -1,3 +1,5 @@
+Android 11 or higher
+
 build.gradle Module
 
     def camerax_version = "1.0.1"
@@ -12,3 +14,5 @@ AndroidManifest.xml
 
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-permission android:name="android.permission.CAMERA" />
+    
+[reference](https://developer.android.com/codelabs/camerax-getting-started#0)
