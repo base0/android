@@ -50,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
         final ListenableFuture<ProcessCameraProvider> future = ProcessCameraProvider.getInstance(this);
         future.addListener(() -> {
             try {
-                ProcessCameraProvider cameraProvider = future.get();
-                Preview preview = new Preview.Builder().build();
                 PreviewView viewFinder = findViewById(R.id.viewFinder);
+                
+                Preview preview = new Preview.Builder().build();
                 preview.setSurfaceProvider(viewFinder.getSurfaceProvider());
+
+                ProcessCameraProvider cameraProvider = future.get();
                 cameraProvider.unbindAll();
                 cameraProvider.bindToLifecycle(this, CameraSelector.DEFAULT_BACK_CAMERA, preview);
             } catch (Exception e) {
