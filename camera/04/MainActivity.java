@@ -57,17 +57,10 @@ public class MainActivity extends AppCompatActivity {
                         //Log.i("vac", "analyze: " + image.getWidth() + " " + image.getHeight());
                         //Log.i("vac", "analyze: " + image.getPlanes()[0].getBuffer().remaining());
                         ByteBuffer byteBuffer = image.getPlanes()[0].getBuffer();
-                        byte[] a = new byte[byteBuffer.remaining()];
-                        byteBuffer.get(a);
-                        int sum = 0;
-                        for (byte b : a) {
-                            sum += b & 0xFF;
-                        }
-                        double d = sum;
-                        d /= a.length;
-                        Button button = findViewById(R.id.camera_capture_button);
-                        button.setText(String.format("%.2f", d));
-                        // byte[] a = byteBuffer.array();  // UnsupportedOperationException
+                        byte[] data = new byte[byteBuffer.remaining()];
+                        byteBuffer.get(data);
+
+                        
                         image.close();
                     }
                 });
