@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(v -> takePhoto());
     }
 
-    // https://github.com/android/camera-samples/blob/master/CameraXBasic/app/src/main/java/com/android/example/cameraxbasic/MainActivity.kt
     ImageCapture imageCapture;
 
     private void startCamera() {
@@ -86,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 PreviewView viewFinder = findViewById(R.id.viewFinder);
                 preview.setSurfaceProvider(viewFinder.getSurfaceProvider());
                 cameraProvider.unbindAll();
-                //cameraProvider.bindToLifecycle(this, CameraSelector.DEFAULT_BACK_CAMERA, preview);
                 cameraProvider.bindToLifecycle(this, CameraSelector.DEFAULT_BACK_CAMERA, preview, imageCapture);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -96,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
     
     static final String FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS";
 
+    //
     public void takePhoto() {
         if (imageCapture == null)
             return;
