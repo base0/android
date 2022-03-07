@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(v -> takePhoto());
 
         outputDirectory = getOutputDirectory();
-
-//        cameraExecutor = Executors.newSingleThreadExecutor()
     }
 
     // https://github.com/android/camera-samples/blob/master/CameraXBasic/app/src/main/java/com/android/example/cameraxbasic/MainActivity.kt
@@ -53,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         final ListenableFuture<ProcessCameraProvider> future = ProcessCameraProvider.getInstance(this);
         future.addListener(() -> {
             try {
+                //
                 imageCapture = new ImageCapture.Builder().build();
 
                 ProcessCameraProvider cameraProvider = future.get();
@@ -68,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }, ContextCompat.getMainExecutor(this));
     }
 
+    //
     File outputDirectory;
     static final String FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS";
 
@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    //
     public File getOutputDirectory() {
         // simplified from Google's example
         return getExternalMediaDirs()[0];
